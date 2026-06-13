@@ -784,6 +784,41 @@ namespace UHFAPP
 
         }
 
+        private void btnExportAscii_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string path = System.Environment.CurrentDirectory + "\\uhfExportData";
+                if (!Directory.Exists(path))
+                {
+                    Directory.CreateDirectory(path);
+                }
+                string txtPath = path + "\\uhf_" + DateTime.Now.ToString("yyyy_MM_dd_HHssmm") + "_ASCII.txt";
+
+                StringBuilder sb = new StringBuilder();
+                
+                for (int i = 0; i < dgData.Rows.Count; i++)
+                {
+                    if (dgData.Rows[i].Cells[0].Value != null)
+                    {
+                        var ascii = dgData.Rows[i].Cells[2].Value != null ? dgData.Rows[i].Cells[2].Value.ToString() : "";
+                        
+                        if (!string.IsNullOrEmpty(ascii))
+                        {
+                            sb.AppendLine(ascii);
+                        }
+                    }
+                }
+
+                System.IO.File.WriteAllText(txtPath, sb.ToString());
+                System.Diagnostics.Process.Start("notepad.exe", txtPath);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
         private void rb2s_Click(object sender, EventArgs e)
         {
             txtTime.Text = "2";
