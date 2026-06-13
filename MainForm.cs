@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -131,9 +131,20 @@ namespace UHFAPP
             setComPort();
             disableControls(false);
             
-            btnSearch_Click(null,null);
+            // btnSearch_Click(null,null);
             LoadUI();
-            combCommunicationMode.SelectedIndex = 1;
+            combCommunicationMode.SelectedIndex = 2;
+            
+            foreach (ToolStripItem item in menuStrip1.Items)
+            {
+                if (item.Name != "MenuItemScanEPC")
+                {
+                    item.Visible = false;
+                }
+            }
+
+            toolStripButton1_Click(null, null);
+
             if (eventMainSizeChanged != null)
             {
                 eventMainSizeChanged(WindowState);

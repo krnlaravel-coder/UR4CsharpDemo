@@ -78,3 +78,13 @@ System.ObjectDisposedException: 无法访问已释放的对象。
    在 System.Windows.Forms.Control.Invoke(Delegate method)
    在 UHFAPP.MainForm.OnDisconnectCallback(Int32 id) 位置 D:\APP2\windows\UR4_A4_R3\UR4\demo\UR4CsharpDemo\MainForm.cs:行号 61
 -----------------------end----------------------------
+-----------------------begin--------------------------
+CurrentDomain_UnhandledException2026-06-13 04:10:00
+IsTerminating : True
+System.ObjectDisposedException: Cannot access a disposed object.
+Object name: 'MainForm'.
+   at System.Windows.Forms.Control.MarshaledInvoke(Control caller, Delegate method, Object[] args, Boolean synchronous)
+   at System.Windows.Forms.Control.Invoke(Delegate method, Object[] args)
+   at System.Windows.Forms.Control.Invoke(Delegate method)
+   at UHFAPP.MainForm.OnDisconnectCallback(Int32 id) in C:\Users\ADMIN\Downloads\Demo_Windwos_R3\C#\demo source code\UR4CsharpDemo\MainForm.cs:line 61
+-----------------------end----------------------------
