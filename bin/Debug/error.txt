@@ -88,3 +88,13 @@ Object name: 'MainForm'.
    at System.Windows.Forms.Control.Invoke(Delegate method)
    at UHFAPP.MainForm.OnDisconnectCallback(Int32 id) in C:\Users\ADMIN\Downloads\Demo_Windwos_R3\C#\demo source code\UR4CsharpDemo\MainForm.cs:line 61
 -----------------------end----------------------------
+-----------------------begin--------------------------
+CurrentDomain_UnhandledException2026-06-13 04:12:56
+IsTerminating : True
+System.ObjectDisposedException: Cannot access a disposed object.
+Object name: 'MainForm'.
+   at System.Windows.Forms.Control.MarshaledInvoke(Control caller, Delegate method, Object[] args, Boolean synchronous)
+   at System.Windows.Forms.Control.Invoke(Delegate method, Object[] args)
+   at System.Windows.Forms.Control.Invoke(Delegate method)
+   at UHFAPP.MainForm.OnDisconnectCallback(Int32 id) in C:\Users\ADMIN\Downloads\Demo_Windwos_R3\C#\demo source code\UR4CsharpDemo\MainForm.cs:line 61
+-----------------------end----------------------------
