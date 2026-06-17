@@ -56,22 +56,28 @@ namespace UHFAPP
         private void OnDisconnectCallback(int id)
         {
             System.Console.WriteLine("OnDisconnectCallback");
-            if (!this.IsDisposed)
+            try
             {
-                this.Invoke(new EventHandler(delegate {
-                    disableControls(false);
-                    toolStripOpen.Text = strOpen;
-                    hIDModeToolStripMenuItem.Enabled = false;
-                    isOpen = false;
-                    if (eventOpen != null)
-                    {
-                        eventOpen(false);
-                    }
-
-                }));
-
+                if (!this.IsDisposed && this.IsHandleCreated)
+                {
+                    this.Invoke(new EventHandler(delegate {
+                        try 
+                        {
+                            disableControls(false);
+                            toolStripOpen.Text = strOpen;
+                            hIDModeToolStripMenuItem.Enabled = false;
+                            isOpen = false;
+                            if (eventOpen != null)
+                            {
+                                eventOpen(false);
+                            }
+                        }
+                        catch { }
+                    }));
+                }
             }
- 
+            catch (ObjectDisposedException) { }
+            catch (InvalidOperationException) { }
         }
         //step2：定义断开回调委托
         UHFAPP.UHFAPI.OnDisconnectCallback DisconnectCallback = null;
