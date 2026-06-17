@@ -148,3 +148,50 @@ Object name: 'MainForm'.
    at System.Windows.Forms.Control.Invoke(Delegate method)
    at UHFAPP.MainForm.OnDisconnectCallback(Int32 id) in C:\Users\ADMIN\Downloads\Demo_Windwos_R3\C#\demo source code\UR4CsharpDemo\MainForm.cs:line 61
 -----------------------end----------------------------
+-----------------------begin--------------------------
+CurrentDomain_UnhandledException2026-06-16 07:45:14
+IsTerminating : True
+System.ObjectDisposedException: Cannot access a disposed object.
+Object name: 'MainForm'.
+   at System.Windows.Forms.Control.MarshaledInvoke(Control caller, Delegate method, Object[] args, Boolean synchronous)
+   at System.Windows.Forms.Control.Invoke(Delegate method, Object[] args)
+   at System.Windows.Forms.Control.Invoke(Delegate method)
+   at UHFAPP.MainForm.OnDisconnectCallback(Int32 id) in C:\Users\ADMIN\Downloads\Demo_Windwos_R3\C#\demo source code\UR4CsharpDemo\MainForm.cs:line 61
+-----------------------end----------------------------
+-----------------------begin--------------------------
+CurrentDomain_UnhandledException2026-06-17 06:24:27
+IsTerminating : True
+System.ObjectDisposedException: Cannot access a disposed object.
+Object name: 'MainForm'.
+   at System.Windows.Forms.Control.MarshaledInvoke(Control caller, Delegate method, Object[] args, Boolean synchronous)
+   at System.Windows.Forms.Control.Invoke(Delegate method, Object[] args)
+   at System.Windows.Forms.Control.Invoke(Delegate method)
+   at UHFAPP.MainForm.OnDisconnectCallback(Int32 id) in C:\Users\ADMIN\Downloads\Demo_Windwos_R3\C#\demo source code\UR4CsharpDemo\MainForm.cs:line 61
+-----------------------end----------------------------
+-----------------------begin--------------------------
+CurrentDomain_UnhandledException2026-06-17 06:25:03
+IsTerminating : True
+System.ObjectDisposedException: Cannot access a disposed object.
+Object name: 'MainForm'.
+   at System.Windows.Forms.Control.MarshaledInvoke(Control caller, Delegate method, Object[] args, Boolean synchronous)
+   at System.Windows.Forms.Control.Invoke(Delegate method, Object[] args)
+   at System.Windows.Forms.Control.Invoke(Delegate method)
+   at UHFAPP.MainForm.OnDisconnectCallback(Int32 id) in C:\Users\ADMIN\Downloads\Demo_Windwos_R3\C#\demo source code\UR4CsharpDemo\MainForm.cs:line 61
+-----------------------end----------------------------
+-----------------------begin--------------------------
+CurrentDomain_UnhandledException2026-06-17 06:25:03
+IsTerminating : True
+System.ComponentModel.InvalidAsynchronousStateException: An error occurred invoking the method.  The destination thread no longer exists.
+   at System.Windows.Forms.Control.WaitForWaitHandle(WaitHandle waitHandle)
+   at System.Windows.Forms.Control.MarshaledInvoke(Control caller, Delegate method, Object[] args, Boolean synchronous)
+   at System.Windows.Forms.Control.Invoke(Delegate method, Object[] args)
+   at System.Windows.Forms.Control.Invoke(Delegate method)
+   at UHFAPP.ReadEPCForm.Time() in C:\Users\ADMIN\Downloads\Demo_Windwos_R3\C#\demo source code\UR4CsharpDemo\ReadEPCForm.cs:line 430
+   at UHFAPP.ReadEPCForm.<btnScanEPC_Click>b__26_0() in C:\Users\ADMIN\Downloads\Demo_Windwos_R3\C#\demo source code\UR4CsharpDemo\ReadEPCForm.cs:line 365
+   at System.Threading.ThreadHelper.ThreadStart_Context(Object state)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.ThreadHelper.ThreadStart()
+-----------------------end----------------------------
+ExitApp

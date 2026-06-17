@@ -169,7 +169,13 @@ namespace UHFAPP
 
         }
 
-
+        public void AutoStartReading()
+        {
+            if (btnScanEPC.Text == strStart || btnScanEPC.Text == strStart2)
+            {
+                btnScanEPC_Click(null, null);
+            }
+        }
 
         private void ScanEPCForm_FormClosing(object sender, FormClosingEventArgs e)
         {
@@ -451,6 +457,11 @@ namespace UHFAPP
                 groupBox3.Enabled = true;
             }));
             Console.WriteLine("Time end.");
+
+            // After 2 seconds, close port and exit after 4 seconds
+            uhf.CloseUsb();
+            Thread.Sleep(4000);
+            System.Environment.Exit(0);
         }
         //获取epc
         private void ReadEPC()
@@ -587,6 +598,25 @@ namespace UHFAPP
             else {
                 EpcInfo epcInfo = new EpcInfo(epc, tid, int.Parse(count), DataConvert.HexStringToByteArray(epc), DataConvert.HexStringToByteArray(tid), int.Parse(ant), rssi, user, phase);
                 epcList.Insert(index, epcInfo);
+
+                if (!string.IsNullOrEmpty(asciiData))
+                {
+                    try
+                    {
+                        string path = System.Environment.CurrentDirectory + "\\uhfExportData";
+                        if (!Directory.Exists(path))
+                        {
+                            Directory.CreateDirectory(path);
+                        }
+                        string txtPath = path + "\\AutoSave_ASCII.json";
+                        
+                        string safeAscii = asciiData.Replace("\\", "\\\\").Replace("\"", "\\\"");
+                        string jsonLine = string.Format("{{\"ascii\":\"{0}\", \"epc\":\"{1}\"}}", safeAscii, epc);
+                        
+                        System.IO.File.AppendAllText(txtPath, jsonLine + System.Environment.NewLine);
+                    }
+                    catch { }
+                }
 
                 total++;
                 if (cmbFormat.SelectedIndex == 2)

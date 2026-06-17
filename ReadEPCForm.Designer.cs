@@ -632,7 +632,7 @@ namespace UHFAPP
             this.txtTime.Name = "txtTime";
             this.txtTime.Size = new System.Drawing.Size(100, 26);
             this.txtTime.TabIndex = 5;
-            this.txtTime.Text = "0";
+            this.txtTime.Text = "2";
             // 
             // rb10
             // 
