@@ -216,6 +216,22 @@ namespace UHFAPP
         {
             context.Response.AppendHeader("Access-Control-Allow-Origin", "*");
             
+            if (context.Request.HttpMethod == "OPTIONS")
+            {
+                context.Response.AppendHeader("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
+                context.Response.AppendHeader("Access-Control-Allow-Headers", "*");
+                context.Response.StatusCode = 200;
+                context.Response.Close();
+                return;
+            }
+
+            if (context.Request.Url.AbsolutePath.EndsWith("favicon.ico"))
+            {
+                context.Response.StatusCode = 404;
+                context.Response.Close();
+                return;
+            }
+            
             try
             {
                 string path = System.Environment.CurrentDirectory + "\\uhfExportData";
@@ -231,6 +247,7 @@ namespace UHFAPP
 
             this.Invoke(new Action(() =>
             {
+                button1_Click(null, null);
                 AutoStartReading();
             }));
 

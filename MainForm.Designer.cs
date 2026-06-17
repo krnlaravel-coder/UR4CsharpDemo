@@ -105,70 +105,70 @@
             this.toolStripMenuItem2});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1427, 25);
+            this.menuStrip1.Size = new System.Drawing.Size(673, 24);
             this.menuStrip1.TabIndex = 2;
             this.menuStrip1.Text = "ScanEPC";
             // 
             // MenuItemScanEPC
             // 
             this.MenuItemScanEPC.Name = "MenuItemScanEPC";
-            this.MenuItemScanEPC.Size = new System.Drawing.Size(72, 21);
+            this.MenuItemScanEPC.Size = new System.Drawing.Size(66, 20);
             this.MenuItemScanEPC.Text = "ReadEPC";
             this.MenuItemScanEPC.Click += new System.EventHandler(this.MenuItemScanEPC_Click);
             // 
             // MenuItemReadWriteTag
             // 
             this.MenuItemReadWriteTag.Name = "MenuItemReadWriteTag";
-            this.MenuItemReadWriteTag.Size = new System.Drawing.Size(103, 21);
+            this.MenuItemReadWriteTag.Size = new System.Drawing.Size(91, 20);
             this.MenuItemReadWriteTag.Text = "ReadWriteTag";
             this.MenuItemReadWriteTag.Click += new System.EventHandler(this.MenuItemReadWriteTag_Click);
             // 
             // configToolStripMenuItem
             // 
             this.configToolStripMenuItem.Name = "configToolStripMenuItem";
-            this.configToolStripMenuItem.Size = new System.Drawing.Size(99, 21);
+            this.configToolStripMenuItem.Size = new System.Drawing.Size(93, 20);
             this.configToolStripMenuItem.Text = "Configuration";
             this.configToolStripMenuItem.Click += new System.EventHandler(this.configToolStripMenuItem_Click);
             // 
             // killLockToolStripMenuItem
             // 
             this.killLockToolStripMenuItem.Name = "killLockToolStripMenuItem";
-            this.killLockToolStripMenuItem.Size = new System.Drawing.Size(69, 21);
+            this.killLockToolStripMenuItem.Size = new System.Drawing.Size(65, 20);
             this.killLockToolStripMenuItem.Text = "Kill-Lock";
             this.killLockToolStripMenuItem.Click += new System.EventHandler(this.killLockToolStripMenuItem_Click);
             // 
             // uHFVersionToolStripMenuItem
             // 
             this.uHFVersionToolStripMenuItem.Name = "uHFVersionToolStripMenuItem";
-            this.uHFVersionToolStripMenuItem.Size = new System.Drawing.Size(71, 21);
+            this.uHFVersionToolStripMenuItem.Size = new System.Drawing.Size(66, 20);
             this.uHFVersionToolStripMenuItem.Text = "UHF Info";
             this.uHFVersionToolStripMenuItem.Click += new System.EventHandler(this.uHFVersionToolStripMenuItem_Click);
             // 
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(95, 21);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(85, 20);
             this.toolStripMenuItem1.Text = "Temperature";
             this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
             // 
             // marginReadToolStripMenuItem
             // 
             this.marginReadToolStripMenuItem.Name = "marginReadToolStripMenuItem";
-            this.marginReadToolStripMenuItem.Size = new System.Drawing.Size(92, 21);
+            this.marginReadToolStripMenuItem.Size = new System.Drawing.Size(83, 20);
             this.marginReadToolStripMenuItem.Text = "MarginRead";
             this.marginReadToolStripMenuItem.Click += new System.EventHandler(this.marginReadToolStripMenuItem_Click_1);
             // 
             // authenticateToolStripMenuItem
             // 
             this.authenticateToolStripMenuItem.Name = "authenticateToolStripMenuItem";
-            this.authenticateToolStripMenuItem.Size = new System.Drawing.Size(94, 21);
+            this.authenticateToolStripMenuItem.Size = new System.Drawing.Size(86, 20);
             this.authenticateToolStripMenuItem.Text = "UCODE DNA";
             this.authenticateToolStripMenuItem.Click += new System.EventHandler(this.authenticateToolStripMenuItem_Click);
             // 
             // MenuItemReceiveEPC
             // 
             this.MenuItemReceiveEPC.Name = "MenuItemReceiveEPC";
-            this.MenuItemReceiveEPC.Size = new System.Drawing.Size(116, 21);
+            this.MenuItemReceiveEPC.Size = new System.Drawing.Size(108, 20);
             this.MenuItemReceiveEPC.Text = "UDP-ReceiveEPC";
             this.MenuItemReceiveEPC.Click += new System.EventHandler(this.receiveEPCToolStripMenuItem_Click);
             // 
@@ -176,28 +176,28 @@
             // 
             this.uHFUpgradeToolStripMenuItem.Enabled = false;
             this.uHFUpgradeToolStripMenuItem.Name = "uHFUpgradeToolStripMenuItem";
-            this.uHFUpgradeToolStripMenuItem.Size = new System.Drawing.Size(100, 21);
+            this.uHFUpgradeToolStripMenuItem.Size = new System.Drawing.Size(90, 20);
             this.uHFUpgradeToolStripMenuItem.Text = "UHF Upgrade";
             this.uHFUpgradeToolStripMenuItem.Click += new System.EventHandler(this.uHFUpgradeToolStripMenuItem_Click);
             // 
             // SetR3ToolStripMenuItem
             // 
             this.SetR3ToolStripMenuItem.Name = "SetR3ToolStripMenuItem";
-            this.SetR3ToolStripMenuItem.Size = new System.Drawing.Size(91, 21);
+            this.SetR3ToolStripMenuItem.Size = new System.Drawing.Size(82, 20);
             this.SetR3ToolStripMenuItem.Text = "User Setting";
             this.SetR3ToolStripMenuItem.Click += new System.EventHandler(this.SetR3ToolStripMenuItem_Click);
             // 
             // hFToolStripMenuItem
             // 
             this.hFToolStripMenuItem.Name = "hFToolStripMenuItem";
-            this.hFToolStripMenuItem.Size = new System.Drawing.Size(35, 21);
+            this.hFToolStripMenuItem.Size = new System.Drawing.Size(34, 20);
             this.hFToolStripMenuItem.Text = "HF";
             this.hFToolStripMenuItem.Click += new System.EventHandler(this.hFToolStripMenuItem_Click);
             // 
             // MultiUR4ToolStripMenuItem
             // 
             this.MultiUR4ToolStripMenuItem.Name = "MultiUR4ToolStripMenuItem";
-            this.MultiUR4ToolStripMenuItem.Size = new System.Drawing.Size(92, 21);
+            this.MultiUR4ToolStripMenuItem.Size = new System.Drawing.Size(94, 20);
             this.MultiUR4ToolStripMenuItem.Text = "连接多台设备";
             this.MultiUR4ToolStripMenuItem.Visible = false;
             this.MultiUR4ToolStripMenuItem.Click += new System.EventHandler(this.MultiUR4ToolStripMenuItem_Click);
@@ -205,7 +205,7 @@
             // hIDModeToolStripMenuItem
             // 
             this.hIDModeToolStripMenuItem.Name = "hIDModeToolStripMenuItem";
-            this.hIDModeToolStripMenuItem.Size = new System.Drawing.Size(81, 21);
+            this.hIDModeToolStripMenuItem.Size = new System.Drawing.Size(73, 20);
             this.hIDModeToolStripMenuItem.Text = "HID Mode";
             this.hIDModeToolStripMenuItem.Click += new System.EventHandler(this.hIDModeToolStripMenuItem_Click);
             // 
@@ -213,7 +213,7 @@
             // 
             this.uSBExportDataToolStripMenuItem.Enabled = false;
             this.uSBExportDataToolStripMenuItem.Name = "uSBExportDataToolStripMenuItem";
-            this.uSBExportDataToolStripMenuItem.Size = new System.Drawing.Size(113, 21);
+            this.uSBExportDataToolStripMenuItem.Size = new System.Drawing.Size(101, 20);
             this.uSBExportDataToolStripMenuItem.Text = "USB ExportData";
             this.uSBExportDataToolStripMenuItem.Visible = false;
             this.uSBExportDataToolStripMenuItem.Click += new System.EventHandler(this.uSBExportDataToolStripMenuItem_Click);
@@ -221,7 +221,7 @@
             // barcodeToolStripMenuItem
             // 
             this.barcodeToolStripMenuItem.Name = "barcodeToolStripMenuItem";
-            this.barcodeToolStripMenuItem.Size = new System.Drawing.Size(69, 21);
+            this.barcodeToolStripMenuItem.Size = new System.Drawing.Size(62, 20);
             this.barcodeToolStripMenuItem.Text = "Barcode";
             this.barcodeToolStripMenuItem.Visible = false;
             this.barcodeToolStripMenuItem.Click += new System.EventHandler(this.barcodeToolStripMenuItem_Click);
@@ -229,7 +229,7 @@
             // toolStripMenuItem2
             // 
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(12, 21);
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(12, 20);
             // 
             // toolStrip1
             // 
@@ -248,23 +248,23 @@
             this.toolStripLabel6,
             this.toolStripLabel8,
             this.toolStripLabel7});
-            this.toolStrip1.Location = new System.Drawing.Point(0, 25);
+            this.toolStrip1.Location = new System.Drawing.Point(0, 24);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-            this.toolStrip1.Size = new System.Drawing.Size(1427, 34);
+            this.toolStrip1.Size = new System.Drawing.Size(673, 37);
             this.toolStrip1.TabIndex = 5;
             this.toolStrip1.Text = "Open";
             // 
             // toolStripLabel4
             // 
             this.toolStripLabel4.Name = "toolStripLabel4";
-            this.toolStripLabel4.Size = new System.Drawing.Size(56, 31);
+            this.toolStripLabel4.Size = new System.Drawing.Size(55, 34);
             this.toolStripLabel4.Text = "通信方式";
             // 
             // combCommunicationMode
             // 
             this.combCommunicationMode.Name = "combCommunicationMode";
-            this.combCommunicationMode.Size = new System.Drawing.Size(121, 34);
+            this.combCommunicationMode.Size = new System.Drawing.Size(121, 37);
             this.combCommunicationMode.Click += new System.EventHandler(this.combCommunicationMode_Click);
             this.combCommunicationMode.TextChanged += new System.EventHandler(this.toolStripComboBox2_TextChanged);
             // 
@@ -276,12 +276,12 @@
             this.toolStripOpen.Checked = true;
             this.toolStripOpen.CheckState = System.Windows.Forms.CheckState.Checked;
             this.toolStripOpen.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.toolStripOpen.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.toolStripOpen.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.toolStripOpen.Image = ((System.Drawing.Image)(resources.GetObject("toolStripOpen.Image")));
             this.toolStripOpen.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.toolStripOpen.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripOpen.Name = "toolStripOpen";
-            this.toolStripOpen.Size = new System.Drawing.Size(60, 31);
+            this.toolStripOpen.Size = new System.Drawing.Size(60, 34);
             this.toolStripOpen.Text = "  Open  ";
             this.toolStripOpen.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.toolStripOpen.Click += new System.EventHandler(this.toolStripButton1_Click);
@@ -289,25 +289,25 @@
             // toolStripLabel2
             // 
             this.toolStripLabel2.Name = "toolStripLabel2";
-            this.toolStripLabel2.Size = new System.Drawing.Size(80, 31);
+            this.toolStripLabel2.Size = new System.Drawing.Size(61, 34);
             this.toolStripLabel2.Text = "                  ";
             // 
             // lblPortName
             // 
             this.lblPortName.Name = "lblPortName";
-            this.lblPortName.Size = new System.Drawing.Size(38, 31);
+            this.lblPortName.Size = new System.Drawing.Size(35, 34);
             this.lblPortName.Text = "COM";
             // 
             // cmbComPort
             // 
             this.cmbComPort.Name = "cmbComPort";
-            this.cmbComPort.Size = new System.Drawing.Size(121, 34);
+            this.cmbComPort.Size = new System.Drawing.Size(121, 37);
             this.cmbComPort.Click += new System.EventHandler(this.cmbComPort_Click);
             // 
             // lblBaudrate
             // 
             this.lblBaudrate.Name = "lblBaudrate";
-            this.lblBaudrate.Size = new System.Drawing.Size(68, 31);
+            this.lblBaudrate.Size = new System.Drawing.Size(60, 34);
             this.lblBaudrate.Text = "Baud rate:";
             this.lblBaudrate.Visible = false;
             this.lblBaudrate.Click += new System.EventHandler(this.toolStripLabel1_Click);
@@ -321,30 +321,30 @@
             "115200",
             "460800"});
             this.cmbBaudrate.Name = "cmbBaudrate";
-            this.cmbBaudrate.Size = new System.Drawing.Size(121, 34);
+            this.cmbBaudrate.Size = new System.Drawing.Size(121, 37);
             this.cmbBaudrate.Visible = false;
             // 
             // toolStripLabel5
             // 
             this.toolStripLabel5.Name = "toolStripLabel5";
-            this.toolStripLabel5.Size = new System.Drawing.Size(32, 31);
+            this.toolStripLabel5.Size = new System.Drawing.Size(25, 34);
             this.toolStripLabel5.Text = "      ";
             // 
             // toolStripLabel6
             // 
             this.toolStripLabel6.Name = "toolStripLabel6";
-            this.toolStripLabel6.Size = new System.Drawing.Size(0, 31);
+            this.toolStripLabel6.Size = new System.Drawing.Size(0, 34);
             // 
             // toolStripLabel8
             // 
             this.toolStripLabel8.Name = "toolStripLabel8";
-            this.toolStripLabel8.Size = new System.Drawing.Size(52, 31);
+            this.toolStripLabel8.Size = new System.Drawing.Size(40, 34);
             this.toolStripLabel8.Text = "           ";
             // 
             // toolStripLabel7
             // 
             this.toolStripLabel7.Name = "toolStripLabel7";
-            this.toolStripLabel7.Size = new System.Drawing.Size(428, 31);
+            this.toolStripLabel7.Size = new System.Drawing.Size(322, 34);
             this.toolStripLabel7.Text = "                                                                                 " +
     "                        ";
             // 
@@ -352,9 +352,9 @@
             // 
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabel1});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 680);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 733);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(1427, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(673, 22);
             this.statusStrip1.TabIndex = 4;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -362,7 +362,7 @@
             // 
             this.toolStripStatusLabel1.BackColor = System.Drawing.SystemColors.Control;
             this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            this.toolStripStatusLabel1.Size = new System.Drawing.Size(131, 17);
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(118, 17);
             this.toolStripStatusLabel1.Text = "toolStripStatusLabel1";
             // 
             // panel1
@@ -372,18 +372,18 @@
             this.panel1.Controls.Add(this.ipControl1);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.txtPort);
-            this.panel1.Location = new System.Drawing.Point(329, 26);
+            this.panel1.Location = new System.Drawing.Point(329, 28);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(344, 34);
+            this.panel1.Size = new System.Drawing.Size(344, 37);
             this.panel1.TabIndex = 8;
             // 
             // lblPort
             // 
             this.lblPort.AutoSize = true;
-            this.lblPort.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.lblPort.Location = new System.Drawing.Point(247, 6);
+            this.lblPort.Font = new System.Drawing.Font("SimSun", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lblPort.Location = new System.Drawing.Point(247, 7);
             this.lblPort.Name = "lblPort";
-            this.lblPort.Size = new System.Drawing.Size(39, 16);
+            this.lblPort.Size = new System.Drawing.Size(40, 16);
             this.lblPort.TabIndex = 1;
             this.lblPort.Text = "Port";
             // 
@@ -397,22 +397,22 @@
         ""};
             this.ipControl1.Location = new System.Drawing.Point(35, 0);
             this.ipControl1.Name = "ipControl1";
-            this.ipControl1.Size = new System.Drawing.Size(198, 34);
+            this.ipControl1.Size = new System.Drawing.Size(198, 37);
             this.ipControl1.TabIndex = 3;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label1.Location = new System.Drawing.Point(5, 9);
+            this.label1.Font = new System.Drawing.Font("SimSun", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label1.Location = new System.Drawing.Point(5, 10);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(23, 16);
+            this.label1.Size = new System.Drawing.Size(24, 16);
             this.label1.TabIndex = 2;
             this.label1.Text = "IP";
             // 
             // txtPort
             // 
-            this.txtPort.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.txtPort.Font = new System.Drawing.Font("SimSun", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.txtPort.Location = new System.Drawing.Point(293, 3);
             this.txtPort.MaxLength = 6;
             this.txtPort.Name = "txtPort";
@@ -427,9 +427,9 @@
             this.columnHeader3});
             this.lvDevcies.FullRowSelect = true;
             this.lvDevcies.HideSelection = false;
-            this.lvDevcies.Location = new System.Drawing.Point(3, 21);
+            this.lvDevcies.Location = new System.Drawing.Point(3, 23);
             this.lvDevcies.Name = "lvDevcies";
-            this.lvDevcies.Size = new System.Drawing.Size(297, 460);
+            this.lvDevcies.Size = new System.Drawing.Size(297, 498);
             this.lvDevcies.TabIndex = 42;
             this.lvDevcies.UseCompatibleStateImageBehavior = false;
             this.lvDevcies.View = System.Windows.Forms.View.Details;
@@ -452,10 +452,10 @@
             // 
             // button1
             // 
-            this.button1.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.button1.Location = new System.Drawing.Point(160, 514);
+            this.button1.Font = new System.Drawing.Font("SimSun", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.button1.Location = new System.Drawing.Point(160, 557);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(88, 48);
+            this.button1.Size = new System.Drawing.Size(88, 52);
             this.button1.TabIndex = 44;
             this.button1.Text = "清空";
             this.button1.UseVisualStyleBackColor = true;
@@ -463,10 +463,10 @@
             // 
             // btnSearch
             // 
-            this.btnSearch.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnSearch.Location = new System.Drawing.Point(32, 514);
+            this.btnSearch.Font = new System.Drawing.Font("SimSun", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btnSearch.Location = new System.Drawing.Point(32, 557);
             this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(93, 48);
+            this.btnSearch.Size = new System.Drawing.Size(93, 52);
             this.btnSearch.TabIndex = 43;
             this.btnSearch.Text = "开始搜索";
             this.btnSearch.UseVisualStyleBackColor = true;
@@ -478,28 +478,28 @@
             this.panel2.Controls.Add(this.label2);
             this.panel2.Controls.Add(this.button1);
             this.panel2.Controls.Add(this.lvDevcies);
-            this.panel2.Location = new System.Drawing.Point(0, 62);
+            this.panel2.Location = new System.Drawing.Point(0, 67);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(303, 615);
+            this.panel2.Size = new System.Drawing.Size(303, 666);
             this.panel2.TabIndex = 44;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label2.Font = new System.Drawing.Font("SimSun", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label2.Location = new System.Drawing.Point(64, 2);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(103, 16);
+            this.label2.Size = new System.Drawing.Size(104, 16);
             this.label2.TabIndex = 45;
             this.label2.Text = "Devices List";
             // 
             // MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.ClientSize = new System.Drawing.Size(1427, 702);
+            this.ClientSize = new System.Drawing.Size(254, 79);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.toolStrip1);
@@ -510,7 +510,7 @@
             this.Name = "MainForm";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "UHF(1.4.2)";
+            this.Text = "karan";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MainForm_FormClosed);
             this.Load += new System.EventHandler(this.Form1_Load);

@@ -164,6 +164,48 @@ namespace UHFAPP
 
         } 
           
+        protected override void WndProc(ref Message m)
+        {
+            const int WM_SYSCOMMAND = 0x0112;
+            const int SC_MAXIMIZE = 0xF030;
+
+            if (m.Msg == WM_SYSCOMMAND)
+            {
+                if ((m.WParam.ToInt32() & 0xFFF0) == SC_MAXIMIZE)
+                {
+                    if (!PromptForPassword("rfid"))
+                    {
+                        return;
+                    }
+                }
+            }
+            base.WndProc(ref m);
+        }
+
+        private bool PromptForPassword(string expectedPassword)
+        {
+            using (Form prompt = new Form())
+            {
+                prompt.Width = 300;
+                prompt.Height = 150;
+                prompt.FormBorderStyle = FormBorderStyle.FixedDialog;
+                prompt.Text = "Enter Password";
+                prompt.StartPosition = FormStartPosition.CenterParent;
+                prompt.MaximizeBox = false;
+                prompt.MinimizeBox = false;
+
+                Label textLabel = new Label() { Left = 20, Top = 20, Width = 240, Text = "Password required to maximize:" };
+                TextBox textBox = new TextBox() { Left = 20, Top = 50, Width = 240, PasswordChar = '*' };
+                Button confirmation = new Button() { Text = "Ok", Left = 160, Width = 100, Top = 80, DialogResult = DialogResult.OK };
+                prompt.Controls.Add(textLabel);
+                prompt.Controls.Add(textBox);
+                prompt.Controls.Add(confirmation);
+                prompt.AcceptButton = confirmation;
+
+                return prompt.ShowDialog(this) == DialogResult.OK && textBox.Text == expectedPassword;
+            }
+        }
+
         private void MainForm_FormClosed(object sender, FormClosedEventArgs e)
         {
         
