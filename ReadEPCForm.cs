@@ -85,7 +85,27 @@ namespace UHFAPP
             }
             catch { }
 
+            LoadApiConfig();
             StartApiServer();
+        }
+
+        private void LoadApiConfig()
+        {
+            try
+            {
+                string path = System.IO.Path.Combine(System.Environment.CurrentDirectory, "ApiConfig.txt");
+                if (System.IO.File.Exists(path))
+                {
+                    string[] lines = System.IO.File.ReadAllLines(path);
+                    if (lines.Length >= 2)
+                    {
+                        currentApiUrl = lines[0];
+                        if (!currentApiUrl.EndsWith("/")) currentApiUrl += "/";
+                        txtTime.Text = lines[1];
+                    }
+                }
+            }
+            catch { }
         }
 
         void MainForm_eventOpen(bool open)
@@ -185,12 +205,36 @@ namespace UHFAPP
 
         }
 
+        private string currentApiUrl = "http://localhost:1234/";
+
+        public void RestartApiServer(string newUrl)
+        {
+            if (apiListener != null)
+            {
+                try { apiListener.Stop(); apiListener.Close(); } catch { }
+            }
+            if (!newUrl.EndsWith("/")) newUrl += "/";
+            currentApiUrl = newUrl;
+            StartApiServer();
+        }
+
+        public void SetScanTime(string seconds)
+        {
+            this.Invoke(new Action(() =>
+            {
+                txtTime.Text = seconds;
+            }));
+        }
+
         private void StartApiServer()
         {
             try
             {
+                string urlToListen = currentApiUrl;
+                if (!urlToListen.EndsWith("/")) urlToListen += "/";
+
                 apiListener = new System.Net.HttpListener();
-                apiListener.Prefixes.Add("http://localhost:1234/");
+                apiListener.Prefixes.Add(urlToListen);
                 apiListener.Start();
                 
                 System.Threading.Tasks.Task.Run(() =>
@@ -230,6 +274,22 @@ namespace UHFAPP
                 context.Response.StatusCode = 404;
                 context.Response.Close();
                 return;
+            }
+
+            string newTime = context.Request.QueryString["time"];
+            string newUrl = context.Request.QueryString["url"];
+            
+            if (!string.IsNullOrEmpty(newTime))
+            {
+                SetScanTime(newTime);
+            }
+
+            if (!string.IsNullOrEmpty(newUrl) || !string.IsNullOrEmpty(newTime))
+            {
+                if (mainform != null)
+                {
+                    mainform.UpdateConfigFromApi(newUrl, newTime);
+                }
             }
             
             try
@@ -275,6 +335,18 @@ namespace UHFAPP
                 context.Response.OutputStream.Close();
             }
             catch { }
+
+            if (!string.IsNullOrEmpty(newUrl))
+            {
+                System.Threading.Tasks.Task.Run(async () =>
+                {
+                    await System.Threading.Tasks.Task.Delay(500); // Wait for response to flush
+                    this.Invoke(new Action(() =>
+                    {
+                        RestartApiServer(newUrl);
+                    }));
+                });
+            }
         }
 
         public void AutoStartReading()

@@ -82,6 +82,7 @@ namespace UHFAPP
         public MainForm()
         {
             InitializeComponent();
+            InitializeApiConfigPanel();
             Common.isEnglish = !IsChineseSimple();
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Sizable;
             this.IsMdiContainer = true;
@@ -163,6 +164,92 @@ namespace UHFAPP
             }
 
         } 
+
+        private Panel apiConfigPanel;
+        private TextBox txtApiUrl;
+        private TextBox txtApiTime;
+        
+        private void InitializeApiConfigPanel()
+        {
+            apiConfigPanel = new Panel();
+            apiConfigPanel.Dock = DockStyle.Top;
+            apiConfigPanel.Height = 40;
+            apiConfigPanel.BackColor = Color.LightGray;
+            apiConfigPanel.Visible = false; // Hidden by default
+            
+            Label lblUrl = new Label() { Text = "API Link:", Left = 10, Top = 12, AutoSize = true };
+            txtApiUrl = new TextBox() { Text = "http://localhost:1234/", Left = 70, Top = 9, Width = 200 };
+            
+            Label lblTime = new Label() { Text = "Scan Time (s):", Left = 290, Top = 12, AutoSize = true };
+            txtApiTime = new TextBox() { Text = "2", Left = 390, Top = 9, Width = 50 };
+            
+            Button btnUpdate = new Button() { Text = "Update", Left = 460, Top = 7 };
+            btnUpdate.Click += BtnUpdate_Click;
+            
+            apiConfigPanel.Controls.Add(lblUrl);
+            apiConfigPanel.Controls.Add(txtApiUrl);
+            apiConfigPanel.Controls.Add(lblTime);
+            apiConfigPanel.Controls.Add(txtApiTime);
+            apiConfigPanel.Controls.Add(btnUpdate);
+            
+            this.Controls.Add(apiConfigPanel);
+            apiConfigPanel.BringToFront();
+
+            LoadApiConfig();
+        }
+
+        private string GetConfigPath()
+        {
+            return System.IO.Path.Combine(System.Environment.CurrentDirectory, "ApiConfig.txt");
+        }
+
+        private void LoadApiConfig()
+        {
+            try
+            {
+                string path = GetConfigPath();
+                if (System.IO.File.Exists(path))
+                {
+                    string[] lines = System.IO.File.ReadAllLines(path);
+                    if (lines.Length >= 2)
+                    {
+                        txtApiUrl.Text = lines[0];
+                        txtApiTime.Text = lines[1];
+                    }
+                }
+            }
+            catch { }
+        }
+
+        private void SaveApiConfig()
+        {
+            try
+            {
+                System.IO.File.WriteAllLines(GetConfigPath(), new string[] { txtApiUrl.Text, txtApiTime.Text });
+            }
+            catch { }
+        }
+        
+        private void BtnUpdate_Click(object sender, EventArgs e)
+        {
+            SaveApiConfig();
+            if (readEPCForm != null)
+            {
+                readEPCForm.RestartApiServer(txtApiUrl.Text);
+                readEPCForm.SetScanTime(txtApiTime.Text);
+                MessageBox.Show(this, "Configuration Updated Successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        public void UpdateConfigFromApi(string url, string time)
+        {
+            this.Invoke(new Action(() =>
+            {
+                if (!string.IsNullOrEmpty(url)) txtApiUrl.Text = url;
+                if (!string.IsNullOrEmpty(time)) txtApiTime.Text = time;
+                SaveApiConfig();
+            }));
+        }
           
         protected override void WndProc(ref Message m)
         {
@@ -821,6 +908,10 @@ namespace UHFAPP
         private void MainForm_SizeChanged(object sender, EventArgs e)
         {
             currState = WindowState;
+            if (apiConfigPanel != null)
+            {
+                apiConfigPanel.Visible = (WindowState == FormWindowState.Maximized);
+            }
             panel2.Height = this.Height - 128;
             //判断是否选择的是最小化按钮
             if (eventMainSizeChanged != null)
