@@ -41,6 +41,9 @@ namespace UHFAPP
         int workTime = 0;
         int total = 0;
         bool isInventory = false;
+        
+        public System.Threading.ManualResetEvent scanCompleteEvent = new System.Threading.ManualResetEvent(false);
+        private System.Net.HttpListener apiListener;
 
 
        // static bool isUIFast = true;
@@ -81,6 +84,8 @@ namespace UHFAPP
                 }
             }
             catch { }
+
+            StartApiServer();
         }
 
         void MainForm_eventOpen(bool open)
@@ -180,6 +185,81 @@ namespace UHFAPP
 
         }
 
+        private void StartApiServer()
+        {
+            try
+            {
+                apiListener = new System.Net.HttpListener();
+                apiListener.Prefixes.Add("http://localhost:1234/");
+                apiListener.Start();
+                
+                System.Threading.Tasks.Task.Run(() =>
+                {
+                    while (apiListener.IsListening)
+                    {
+                        try
+                        {
+                            var context = apiListener.GetContext();
+                            HandleApiRequest(context);
+                        }
+                        catch { }
+                    }
+                });
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("API Server error: " + ex.Message);
+            }
+        }
+        
+        private void HandleApiRequest(System.Net.HttpListenerContext context)
+        {
+            context.Response.AppendHeader("Access-Control-Allow-Origin", "*");
+            
+            try
+            {
+                string path = System.Environment.CurrentDirectory + "\\uhfExportData";
+                string txtPath = path + "\\AutoSave_ASCII.json";
+                if (System.IO.File.Exists(txtPath))
+                {
+                    System.IO.File.Delete(txtPath);
+                }
+            }
+            catch { }
+
+            scanCompleteEvent.Reset();
+
+            this.Invoke(new Action(() =>
+            {
+                AutoStartReading();
+            }));
+
+            scanCompleteEvent.WaitOne();
+
+            string jsonResponse = "[]";
+            try
+            {
+                string path = System.Environment.CurrentDirectory + "\\uhfExportData";
+                string txtPath = path + "\\AutoSave_ASCII.json";
+                if (System.IO.File.Exists(txtPath))
+                {
+                    string[] lines = System.IO.File.ReadAllLines(txtPath);
+                    jsonResponse = "[" + string.Join(",", lines) + "]";
+                }
+            }
+            catch { }
+
+            try
+            {
+                byte[] buffer = System.Text.Encoding.UTF8.GetBytes(jsonResponse);
+                context.Response.ContentType = "application/json";
+                context.Response.ContentLength64 = buffer.Length;
+                context.Response.OutputStream.Write(buffer, 0, buffer.Length);
+                context.Response.OutputStream.Close();
+            }
+            catch { }
+        }
+
         public void AutoStartReading()
         {
             if (btnScanEPC.Text == strStart || btnScanEPC.Text == strStart2)
@@ -190,6 +270,11 @@ namespace UHFAPP
 
         private void ScanEPCForm_FormClosing(object sender, FormClosingEventArgs e)
         {
+            if (apiListener != null)
+            {
+                try { apiListener.Stop(); } catch { }
+            }
+
             MainForm.eventOpen -= MainForm_eventOpen;
             MainForm.eventMainSizeChanged -= MainForm_SizeChanged;
             if (btnScanEPC.Text == strStop || btnScanEPC.Text == strStop2)
@@ -469,10 +554,7 @@ namespace UHFAPP
             }));
             Console.WriteLine("Time end.");
 
-            // After 2 seconds, close port and exit after 4 seconds
-            uhf.CloseUsb();
-            Thread.Sleep(4000);
-            System.Environment.Exit(0);
+            scanCompleteEvent.Set(); // Signal API server that scan is complete
         }
         //获取epc
         private void ReadEPC()

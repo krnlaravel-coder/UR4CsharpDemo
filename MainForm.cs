@@ -376,11 +376,6 @@ namespace UHFAPP
                                 eventOpen(true);
                             }
                             enableControls();
-
-                            if (readEPCForm != null)
-                            {
-                                readEPCForm.AutoStartReading();
-                            }
                         }));
 
                     }
