@@ -70,6 +70,17 @@ namespace UHFAPP
             }
             this.mainform = mainform;
             cmbFormat.SelectedIndex = 0;
+
+            try
+            {
+                string path = System.Environment.CurrentDirectory + "\\uhfExportData";
+                string txtPath = path + "\\AutoSave_ASCII.json";
+                if (System.IO.File.Exists(txtPath))
+                {
+                    System.IO.File.Delete(txtPath);
+                }
+            }
+            catch { }
         }
 
         void MainForm_eventOpen(bool open)
@@ -610,7 +621,7 @@ namespace UHFAPP
                         }
                         string txtPath = path + "\\AutoSave_ASCII.json";
                         
-                        string safeAscii = asciiData.Replace("\\", "\\\\").Replace("\"", "\\\"");
+                        string safeAscii = asciiData.Replace("\0", "").Trim().Replace("\\", "\\\\").Replace("\"", "\\\"");
                         string jsonLine = string.Format("{{\"ascii\":\"{0}\", \"epc\":\"{1}\"}}", safeAscii, epc);
                         
                         System.IO.File.AppendAllText(txtPath, jsonLine + System.Environment.NewLine);
