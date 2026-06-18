@@ -236,9 +236,60 @@ namespace UHFAPP
             catch { }
         }
         
+        private void InstallSslIfRequired(string urls)
+        {
+            string[] splitUrls = urls.Split(new char[] { ',', ';' }, StringSplitOptions.RemoveEmptyEntries);
+            foreach (string u in splitUrls)
+            {
+                string url = u.Trim();
+                if (url.StartsWith("https://", StringComparison.OrdinalIgnoreCase))
+                {
+                    try
+                    {
+                        System.Uri uri = new System.Uri(url);
+                        int port = uri.Port;
+                        
+                        string script = $@"
+$port = {port};
+$cert = Get-ChildItem -Path Cert:\LocalMachine\My | Where-Object {{ $_.Subject -match 'CN=localhost' }} | Select-Object -First 1;
+if (-not $cert) {{
+    $cert = New-SelfSignedCertificate -DnsName 'localhost' -CertStoreLocation 'cert:\LocalMachine\My' -FriendlyName 'UHF API Localhost Cert';
+    $store = New-Object System.Security.Cryptography.X509Certificates.X509Store('Root', 'LocalMachine');
+    $store.Open('ReadWrite');
+    $store.Add($cert);
+    $store.Close();
+}}
+$thumbprint = $cert.Thumbprint;
+$appid = '{{12345678-1234-1234-1234-123456789012}}';
+netsh http delete sslcert ipport=0.0.0.0:$port 2>&1 | Out-Null;
+netsh http add sslcert ipport=0.0.0.0:$port certhash=$thumbprint appid=$appid 2>&1 | Out-Null;
+";
+                        byte[] bytes = System.Text.Encoding.Unicode.GetBytes(script);
+                        string base64 = Convert.ToBase64String(bytes);
+                        
+                        System.Diagnostics.ProcessStartInfo psi = new System.Diagnostics.ProcessStartInfo();
+                        psi.FileName = "powershell.exe";
+                        psi.Arguments = $"-NoProfile -ExecutionPolicy Bypass -WindowStyle Hidden -EncodedCommand {base64}";
+                        psi.UseShellExecute = true;
+                        psi.Verb = "runas"; // Forces Administrator
+                        psi.WindowStyle = System.Diagnostics.ProcessWindowStyle.Hidden;
+                        psi.CreateNoWindow = true;
+                        
+                        using (System.Diagnostics.Process p = System.Diagnostics.Process.Start(psi))
+                        {
+                            p.WaitForExit();
+                        }
+                    }
+                    catch { }
+                }
+            }
+        }
+
         private void BtnUpdate_Click(object sender, EventArgs e)
         {
             SaveApiConfig();
+            InstallSslIfRequired(txtApiUrl.Text);
+            
             if (readEPCForm != null)
             {
                 readEPCForm.RestartApiServer(txtApiUrl.Text);
